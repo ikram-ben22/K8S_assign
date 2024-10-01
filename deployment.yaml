@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+  labels:
+    app: newApp
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: newApp
+    spec:
+      containers:
+      - name: newApp
+        image: Hello_world:v1
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "500m"
+          limits:
+            memory: "1024Mi"
+            cpu: "1"
